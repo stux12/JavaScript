@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 객체란 속성과 기능을 가지고 있는 프로그램 덩어리
+        // 객체 { 값(속성), 기능(메소드 = 함수)}
+
+
+        // 객체 생성 {}를 이용해서 키와 속성으로 생성
+        var varName = {
+            num : 123,
+            str :"abc",
+            boo : true,
+            fun : function(power){
+                return this.num*power
+            },
+            obj : {},
+            arr : [1,2,3],
+            ude : undefined
+        }
+        
+        //객체 접근 .을 이용한다
+        varName.fun(2);
+        varName.num;
+
+        //객체 접근 for~in을 이용한다
+        var print = "";
+        for(var key in varName){
+            print += varName[key]
+        }
+
+        //속성 추가
+        varName.talent = "fencing";
+
+        //속성 삭제
+        delete varName.talent;
+
+        //in, with키워드
+        console.log("arr" in varName) //varName안에 arr키워드가 있는지 확인 true,false
+
+        with(varName){ //varName{}안에 속성들을 바로 접근할수 있음
+            console.log(num)
+            console.log(str)
+            console.log(boo)
+        }
+
+    </script>
+</body>
+</html>
