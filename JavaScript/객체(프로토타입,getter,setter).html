@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //객체를 만드는방법
+        // 가장 기본적인 방법
+        var obuBicycle = {
+
+            handle : "steel",
+            maxSpeed : "50Km/h",
+            run : function(){
+                return "go!";
+            }
+
+        };
+
+        //함수를 이용한 객체 생성
+        function createCar(name, color, speed){
+            var carObj = {
+                name : name,
+                color : color,
+                speed : speed,
+                run : function(){
+                    return this.speed + "km/h";
+                }
+            }
+            return carObj;
+        }
+        var sorento = createCar("sorento", "black", 30)
+        console.log(sorento.name)
+
+        //생성자를 이용한 객체 생성
+        function Airplane(name, color, speed){
+
+            this.name = name;
+            this.color = color;
+            this.speed = speed;
+            this.fly = function(){
+                return this.speed+"fly"
+            };
+        };
+        var boeing787 = new Airplane("boeing787","white/blue","600km/h")
+        console.log(boeing787.fly)
+
+        //프로토타입
+        //javascript에만 있는 prototype이란 공유된 공간
+        // 공통적인 기능같은것은 공유된공간에 하나만 만들고 공유해서 써서 메모리낭비를 줄인다
+        function Scoring(player, scoreFirst, scoreSecond, scoreThird){
+
+            this.palyer = player;
+            this.scoreFirst = scoreFirst;
+            this.scoreSecond = scoreSecond;
+            this.scoreThird = scoreThird;
+
+            /*
+            this.getTotal = function(){
+                return this.scoreFirst + this.scoreSecond + this.scoreThird;
+            };
+
+            this.getAverage = function(){
+                return (this.getTotal()/3).toFixed(3);
+                //toFixed() 고정소수점 표현 xx.xxx까지만 표현
+            }
+            위의방법으로하면 공통된 기능이 메모리낭비
+            */
+
+            //객체.프로토타입.변수명 => 객체에있는 이 변수는 공유한다 이런느낌 자바에서의 static
+            Scoring.prototype.getTotal = function(){
+                return this.scoreFirst + this.scoreSecond + this.scoreThird;
+            }
+            Scoring.prototype.getAverage = function(){
+                return (this.getTotal()/3).toFixed(3);
+            }
+           
+        }
+
+        // getter, setter함수
+        // 외부에서 내가만든 객체의 속성이나 속성값을 가져올수 없으므로 getter, setter을통해 가져올수있음
+        function BMICalculator(){
+           var height = 0;
+           var weight = 0;
+
+           this.bmi = function(){
+               return "이렇게 하는것"
+           }
+
+           this.getHeight = function(){
+               return this.height
+           }
+           this.setHeight = function(height){
+               if(!isNaN(height)){
+                   this.height = height;
+               }
+           }
+           this.getWeight = function(){
+               return this.weight
+           }
+           this.setWeight = function(weight){
+            if(!isNaN(weight)){
+                   this.weight = weight;
+               }
+           }
+           
+        }
+
+        //myBMI라는곳에 
+        var myBMI = new BMICalculator();
+        //객체에있는 기능은 가져다 쓸수있음 값을 가져오기위해선 get,set
+        myBMI.setHeight()
+        myBMI.bmi()
+    </script>
+
+</body>
+</html>
