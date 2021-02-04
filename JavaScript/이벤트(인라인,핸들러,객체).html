@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        //이벤트 대표적인것 : 마우스 , 버튼 , 양식전송 , 웹페이지 로드 , 포커스
+        //이벤트 형식 : on(이벤트속성)click(이벤트이름)=function(){}(이벤트핸들러)
+        
+
+        //이벤트 모델
+        //DOM level 0 -> 인라인모델, 기본모델(중요!!)
+        //DOM level 2 -> MS핸들러모델, 표준핸들러모델(중요!!)
+
+
+        //인라인 모델 html안에서 스크립트코드를 작성한것 (비추)코드가길어지면 답없음
+        // <div id="id1" onclick="headerClick()">
+        //이벤트 제거하려면 onclick = null null값을 주면됨
+
+        //기본 모델 (중요!!!!!!) 
+        //방법 1 : id를 받아와서 익명함수에 넣고 함수.onclick = function(){}으로 이벤트실행
+        //방법 2 : 명시적함수로 선언해서 하는방법 형태는 똑같음
+        
+        //MS핸들러 (비추) 익스플로어 8버전에서 가능 따라서 몰라도됨
+        //attachEvent("onclick속성자체", "찾아갈곳",false)
+        //detachEvent("onclick속성자체", "찾아갈곳",false)
+
+        //표준핸들러 (중요!!!)
+        //이벤트리스너를 추가한다
+        //addEventListener("click이벤트이름", "찾아갈곳", false(이벤트버블링,캡쳐링하는곳 사용잘안함));
+        //이벤트리스너를 삭제한다
+        //removeEventListener("click", "function찾아갈곳", false)
+
+
+        //이벤트 객체 this -> 이벤트를 발생시킨객체를 가르킴 중요함!!
+        this.style.backgroundColor = "blue";
+        //function addHandler(e){  이벤트로갈때 이벤트객체를 매개변수로 넣어서 받을수있음
+        //안에서 var event = e; 로 해서 이벤트객체를 담아서 사용할수있음
+        //for(var key in event){ event[key]}를 하면 이 이벤트객체의 값들을 다 볼수있음
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
