@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //함수는 또 다른 함수를 반환할수 있다
+        function funName(){
+            //실행문
+
+            //리턴문
+            return function(x){
+                 
+                for(var i=1; i<10; i++){
+                    document.write(i*x+"  ");
+                }
+            }
+        }
+        funName(6); // funName()에 들어가고
+        var returnFun = funName(); //리턴 function(x){}가 들어감
+        returnFun(5);
+
+
+        //클로저
+        function funName2(x){
+            var varName = x
+
+            return function(){
+                for(var i=1; i<10; i++){
+                    document.write(x*y+"  ");
+                }
+            }
+        }
+        var returnFun = funName2(5);
+        returnFun(); //했을때 varname의 값과 x의 값은 살아있음 life-cycle
+
+        // 내부함수 : 함수안에 또다른 함수
+        function outFun(width, height){
+
+            innerFun1();
+            innerFun2();
+
+            //내부함수로 직접 외부에서 끌어쓸수없어서 위의 호출문이 있어야함
+            function innerFun1(){ 
+                return width * height
+            }
+            function innerFun2(){
+                return width + height
+            }
+        }
+        outFun(3,5)
+
+        //콜백함수 : 매개변수로 함수를 전달, 전달된 매개변수가 특정시점에 호출
+        function funName3(funCBF, funCBP, num){
+            for(var i=1; i<=10; i++){
+                num*i
+                if(i<10){
+                    funCBP(i) //funCBP에 funCallBackFinish이라서 함수가 호출됨
+                }
+            }funCBF();
+        }
+        function funCallBackProgress(){
+
+        }
+        function funCallBackFinish(){
+
+        }
+        funName3(funCallBackFinish,funCallBackProgress,3)
+
+
+        //내장함수 : javascript가 기본적으로 제공해주는 함수
+        alert() //경고창
+
+        console.log()//콘솔창에 출력
+
+        eval() //String 문자열을 코드로 인식하게 만듬
+        var a = "document.write('이렇게')";
+        eval(a);
+
+        //시간관련함수 3초후 실행 딱한번만
+        setTimeout(),clearTimeout()
+        var timeoutId = setTimeout(function(){alert("3초후 한번 실행됩니다");}, 3000);
+        clearTimeout(timeoutId); //취소 하는 명령
+
+        //시간관련함수 2초마다 실행 계속
+        setInterval(),clearInterval()
+        var intervalId = setInterval(function(){document.write("2초마다 실행");}, 2000);
+        clearInterval(intervalId) //취소 하는 명령
+
+        
+
+    </script>
+</body>
+</html>
