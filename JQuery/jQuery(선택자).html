@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery-3.5.1.js"></script>
+
+    <script>
+
+        
+        // JavaScript       
+        // 1. window.onload = function(){}
+        
+        // $(선택자).함수명(자료형); 위아래 같은식
+
+        // jQeury
+        // 1. $(document).ready(function(){})
+        // 2. $(function(){})
+
+        
+        // 자주 사용하는 선택자
+        // 전체 선택자 
+            $("*")
+        // 태그 선택자 
+            $("li")
+        // 아이디 선택자
+            $("#id") 
+        // 클래스 선택자
+            $(".class") 
+        // 후손 선택자 모든p태그를 선택
+            $("body p")
+        // 자손 선택자 바로밑에있는 p태그를 선택
+            $("body > p")
+
+        // 선택자 종류
+        // 속성 선택자
+            $("input[type='text']")
+            $("input[type='password']")
+        // 필터 선택자
+            $("input:submit")
+                        //input에서 check되어있는 value값
+            var chk = $("input.checked").val(); 
+        // 함수 서택자
+            $("li:nth-child(2n+1)")
+
+    </script>
+
+</head>
+<body>
+    
+
+</body>
+</html>

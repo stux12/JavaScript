@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // 자주쓰이지는 않음 DOM이 자주쓰임
+        // BOM 이란 Browser Object Model : 브라우저와 관련된 객체라는 의미
+        // window객체 안에 location, history, screen, navigator 
+
+        //window 객체 window는 생략가능
+        window.alert(); // 알림창
+        window.console.log(); //디버깅용도로 쓰임
+        
+        //open객체 새로운 브라우저가 열림
+        var newWindow = window.open("http://www.google.com", "openWindow", "with=500, height=300"); 
+        //위치조정 moveTo By
+        newWindow.moveTo(50,50);
+        for(var i=0; i<1000; i++){
+            newWindow.moveBy(1,1);
+        }
+        //사이즈조정 resizeTo By
+        newWindow.resizeTo(500,600)
+        for(var i=0; i<200; i++){
+            newWindow.resizeBy(-1,-1);
+        }
+        
+        //onload는 자주쓰임 윈도우가 body에있는 모든내용을 다 load되었을때 실행
+        window.onload = function(){
+            console.log("FIRST!");
+        }
+        
+        //screen객체 : 내가사용하고있는 모니터를 가르킴
+        function openWin(url,width,height){
+            var left = screen.width/2 - width/2;
+            var top = screen.height/2 - height/2;
+            var opt = "width = "+ width + ", height = " + height + ", left = " + left + ", top = " + top; 
+            open(url, "newWin", opt)
+        }
+        openWin("https://yahoo.com",800,500);
+
+        //Location객체 : 주소와 관련된 객체
+        location.href = "http://www.yahoo.com"; //새로운 페이지로 이동
+        location.assign("http://www.yahoo.com"); // 이전페이지 히스토리를 저장해서 이전페이지 이동가능
+        location.replace("http://www.yahoo.com");//기존페이지를 새로운 페이지로 이전페이지로 못돌아감
+        // 위 3개는 url주소로 이동을 하게됨
+        //setTimeout은 한번만 실행됨
+        setTimeout(function(){
+            location.reload(); // 새로고침
+        }, 3000)
+        //setInterval은 반복실행
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

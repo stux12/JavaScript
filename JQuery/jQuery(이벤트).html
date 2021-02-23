@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="jquery-3.5.1.js"></script>
+
+<script>
+    //문법
+//이벤트객체  이벤트이름  이벤트핸들러
+    $(".logo").click(function(){
+        console.log("click")
+    })
+
+    
+    //다양한 이벤트
+    click //마우스한번클릭
+    dblclick //마우스더블클릭
+    mousedown //마우스누름
+    mouseup //마우스뗌
+    mousemove //마우스움직임
+    mouseover //마우스 들어옴
+    mouseout //마우스 나감
+    //이 둘의 차이점은 enter, leave의 경우 안에있는지 없는지만 따지기 때문에 다른 객체가 안에 들어와있으면 이벤트 발생 X
+    //over,out의 경우 다른객체안에 들어올때 이벤트 다시 발생시킴
+    mouseenter //마우스 들어옴
+    mouseleave //마우스 나감
+
+
+    // 양식(폼) 이벤트
+    $(document).ready(function(){
+        //      .submit도 가능
+        $("#id").click(function(){
+            if($("#id").val()==""){
+                event.preventDefault();//submit액션을 막아버리겠다라는 의미 자바스크립트 return false;
+            }else if($("#pw").val()==""){
+
+            }else{
+
+            }
+        })
+
+        $("#id").click(function(){
+            $("form")[0].reset(); //폼은 배열로 관리가됨 그래서 form[0] 가 첫번째
+        })
+    })
+
+    
+    //this = 이벤트를 발생시킨 객체
+    //event[key] = 이벤트가 가지고있는 객체를 볼수잇음
+
+
+
+</script>
+
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+        <!-- 파일을 끌어다 쓰는방법 -->
+        <script src="jquery-3.5.1.js"></script>
+       
+        <!-- 주소를 끌어다 쓰는방법 -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script> -->
+         
+
+        
+
+
+        <script>
+
+            window.onload = function(){
+                // $(선택자-css를 다사용가능).함수명(매개변수);
+                // jQery = $
+                jQuery("p").css("color", "red");
+                $("p").css("fontWeight","bolder");
+                
+                var myJQ = jQuery("p");
+                myJQ.css("textDecoration", "underLine");
+                // 추가적으로 바로 집어넣고 싶으면 .css를 연결해서도 사용가능
+                myJQ.css("width","300px").css("border","1px solid #ff0000");
+                $("p").css("fontSize","2em").css("height","300px").css("lineHeight","300px").css("textAlign","center");
+
+
+            }
+
+
+        </script>
+
+</head>
+<body>
+    <p>Hello jQuery</p>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <script>
+
+        // 문서 객체 생성
+            $(document).ready(function(){
+
+                //$(html태그) = 태그객체 생성
+                var wrapObj = $("#wrap");
+                
+
+                // div 객체 생성 및 추가
+                var divObj = $(<div>Hello jQuery!</div>);
+                //추가한다 #wrap에다가
+                divObj.appendTo(wrapObj);
+                divObj.css("background","#ff0000");
+
+
+                // a 객체 생성 및 추가
+                var aObj = $("<a herf='http://www.google.com' target='_blank'>google </a><br>");
+                aObj.appendTo(wrapObj);
+
+                
+                // img객체
+                var imgObj = $("<img src = '/.jpg' > <br>");
+                imgObj.appendTo(wrapObj);
+
+                // img 속성 객체 생성 및 추가
+                var tempObj = {
+                    src : ".jpg",
+                    width : 297,
+                    height : 124,
+                    border : "5px"
+                };
+                var imgAobj = $("<img>", tempObj);
+                imgAobj.appendTo(wrapObj);
+            })
+
+
+        // 객체 삽입
+        
+            $(document).ready(function(){
+
+                var wrapObj = $("wrap")
+
+                //객체 생성
+                var divObj = $("<div> Hello </div>");
+
+                //객체 삽입
+                // wrap오브젝트 안에 추가됨
+                divObj.appendTo(wrapObj) //뒤에 새롭게 추가
+                wrapObj.append(divObj) //위랑 동일 타겟위치만 다름
+                divObj.prependTo(wrapObj) //앞에 새롭게 추가
+                wrapObj.prepend(divObj) //위랑 동일
+
+                // wrap오브젝트 다음에 추가됨
+                divObj.insertAfter(wrapObj) //wrap 앞에 추가
+                wrapObj.after(divObj) //위랑 동일
+                divObj.insertBefore(wrapObj) // wrap 이후에 추가
+                wrapObj.before(divObj) //위랑 동일
+            })
+
+        // 객체 이동
+            $(document).ready(function(){
+                // 객체를 이동시키는 방법
+                $("#wrap > .contents > .p").appendTo($("#wrap > .contents2"))
+            })
+
+        
+        // 객체 복제
+            $(document).ready(function(){
+                var co = $("#wrap").clone();
+                co.appendTo($("wrap"));
+
+                //아래방법도 가능함
+                ($("wrap").clone()).appendTo($("wrap"));
+                $("wrap").append($("#wrap").clone);
+
+            })
+    
+    </script>
+
+<body>
+    <div id="wrap">
+
+    </div>
+</body>
+</html>

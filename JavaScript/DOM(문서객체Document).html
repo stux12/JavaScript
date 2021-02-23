@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        //DOM이란 Document Object Model 웹문서(태그)와 관련된 객체
+        // 하나하나의 Element를 node라고함  node = tag = 객체 = <a>,<head>이런느낌
+        
+        //텍스트 노드 이용하기
+        window.onload = function(){
+            var elementNode = document.createElement("P"); //태그를 만든다
+            var textNode = document.createTextNode("javascript & node.js"); //글자를생성해줌 태그에글자를 집어넣음
+
+            elementNode.appendChild(textNode); //위쪽 p태그에 글자를 붙임
+            document.body.appendChild(elementNode); //body의 자식으로 p태그+내용을 붙임
+        }
+
+        //텍스트 노드 외 방법으로 이용
+        window.onload = function(){
+            var imgNode = document.createElement("img"); // img태그를 만듬
+            imgNode.src = "./jpg";
+            imgNode.width = "170";
+            imgNode.height = "67";
+
+
+        //기존에 있는 속성들은 setAttribute가 생략가능
+            imgNode.setAttribute("src","./jpg");
+            imgNode.setAttribute("width",170);
+            imgNode.setAttribute("height", 67);
+            imgNode.setAttribute("tempData","logoImg"); //내가 원하는속성을 추가해나갈수있음
+
+            document.body.appendChild(imgNode); //body에 붙임
+        }
+
+
+        //Inner을 이용한 방법
+        window.onload = function(){
+
+            var str = "";
+            str += "<p> javascript & node.js</p>";
+            str += "<img src='.jpg', ";
+            str += "width='170', height='67'";
+            document.body.innerHTML = str; //body안에 이코드가 그대로 달라붙어서 body에 쓴거랑 동일시됨
+
+            //ID가져오는것!!
+            var titleNode = document.getElementById("id") //id를 가져옴
+            titleNode.innerHTML = "JS & NODE"; //id태그에 값을넣음
+
+            var logoNode = document.getElementById("id");
+            logoNode.setAttribute("src", "./img") //이것도가능
+            logoNode.src = "./img";
+
+            //삭제하는것!!
+            titleNode.parentNode.removeChild(titleNode);// titleNode의 부모노드의 자식중 titleNode를 제거
+            
+             //스타일 적용 .style.속성=값; 
+             logoNode.style.fontSize = "1.2em"; 
+        }
+
+       
+
+        
+
+    </script>
+
+</head>
+<body>
+    <img src="" alt="" id="id">
+</body>
+</html>

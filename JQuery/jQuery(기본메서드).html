@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="jquery-3.5.1.js"></script>
+
+    <script>
+
+        //기본 메서드
+
+        each() //배열을관리
+        $("p").each(function(index, item){
+            console.log($(item).text());
+            console.log($(this).text());
+            if(index % 2 == 0) {
+                $(item).css("background", "#dfdfdf");
+            }else{
+                $(item).css("background", "#cccccc");
+            }
+        })
+
+        html() / text() //내용 읽고 쓰기
+        //둘의 차이점 : html은 태그 쓰면 태그 인식되지만 text는 그대로 출력
+        console.log($("#id").html()); // 안에있는 내용물 읽기
+        $("#id").html("<strong>new</strong>"); // ()안에 쓰면 쓰기 초기화됨
+
+        console.log($("#id").text()); // 안에있는 내용물 읽기
+        $("id").text("<strong>new</strong>"); //()안에 쓰면 쓰기 초기화됨
+
+        addClass() //클래스 속성 추가
+        removeClass() //클래스 속성 제거
+        $("#id").addClass("className"); // 추가할 클래스 네임
+        $("#id").removeClass("className"); //삭제할 클래스 네임
+        $("className").removeClass(); //위랑 똑같은 결과
+
+
+        attr() // 속성추가
+        removeAttr() //속성제거
+        console.log($("#id").attr("src"))// 인자1개만 쓰면 속성검사로 속성의 값이나옴
+        $("#id").attr("src", ".img") //인자1(속성) = 인자2(값)
+        
+        $("#id").removeAttr("src") // 해당 속성값을 삭제함
+
+
+        css()//스타일 추가및 검사
+        $("#id").css("width","300px").css("height","300px"); 
+        console.log($("#id").css("width")) // 해당 속성값이 나옴
+
+
+        remove()//문서객체제거
+        $("#id").remove(); // 아애 객체자체가 없어짐
+
+        empty()//문서객체내부제거
+        $("#id").empty(); // 객체 내용물만 삭제 객체는 살아남음
+    </script>
+
+
+
+
+
+
+<body>
+    
+
+</body>
+</html>
